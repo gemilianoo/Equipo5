@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #030712;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Cuadrícula de fondo */
+.bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1;
+}
+
+/* Esferas luminosas detrás del cristal */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.75;
+    z-index: 2;
+    animation: floatBlob 12s ease-in-out infinite alternate;
+}
+
+.blob-purple {
+    width: 420px;
+    height: 420px;
+    background: #7c3aed;
+    top: 8%;
+    left: 12%;
+}
+
+.blob-cyan {
+    width: 380px;
+    height: 380px;
+    background: #0891b2;
+    bottom: 8%;
+    right: 12%;
+    animation-delay: -4s;
+}
+
+.blob-pink {
+    width: 320px;
+    height: 320px;
+    background: #db2777;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -7s;
+}
+
+.blob-orange {
+    width: 260px;
+    height: 260px;
+    background: #ea580c;
+    top: 20%;
+    right: 20%;
+    animation-delay: -2s;
+}
+
+/* Elementos geométrica auxiliares */
+.glass-shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    z-index: 3;
+    animation: rotateShape 15s linear infinite;
+}
+
+.shape-1 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 18%;
+}
+
+.shape-2 {
+    width: 110px;
+    height: 110px;
+    bottom: 20%;
+    right: 20%;
+    border-radius: 50%;
+}
+
+.shape-3 {
+    width: 65px;
+    height: 65px;
+    bottom: 30%;
+    left: 25%;
+}
+
+/* Tarjeta central de cristal */
+.glass-container {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 3.5rem 4rem;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4),
+        0 0 35px rgba(124, 58, 237, 0.2);
+    text-align: center;
+    max-width: 720px;
+    width: 90%;
+    transition: transform 0.3s ease;
+}
+
+.glass-container:hover {
+    transform: translateY(-5px);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #c7d2fe;
+    margin-bottom: 1.5rem;
+}
+
+h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    line-height: 1.4;
+    background: linear-gradient(135deg, #ffffff 40%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glass-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1.8rem;
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
+    color: #818cf8;
+    font-weight: 500;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #22c55e;
+}
+
+/* Animaciones suaves */
+@keyframes floatBlob {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -30px) scale(1.15); }
+}
+
+@keyframes rotateShape {
+    0% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(180deg) translateY(-10px); }
+    100% { transform: rotate(360deg) translateY(0); }
+}
