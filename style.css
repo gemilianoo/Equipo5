@@ -1,0 +1,221 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #e0c3fc 0%, #c2e9fb 50%, #fbc2eb 100%);
+    background-size: 200% 200%;
+    animation: gradientMove 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ===== EMOJIS FLOTANTES ===== */
+body::before,
+body::after {
+    content: '✨';
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.7;
+    animation: floatEmoji 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+body::before {
+    top: 10%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+body::after {
+    content: '🌸';
+    bottom: 12%;
+    right: 10%;
+    font-size: 4rem;
+    animation-delay: -3s;
+}
+
+@keyframes floatEmoji {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-25px) rotate(15deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(-10deg);
+    }
+    75% {
+        transform: translateY(-30px) rotate(8deg);
+    }
+}
+
+/* ===== EMOJIS ADICIONALES CON PSEUDO-ELEMENTOS EN EL H1 ===== */
+h1::before,
+h1::after {
+    position: absolute;
+    font-size: 2rem;
+    animation: spinFloat 6s ease-in-out infinite;
+    opacity: 0.85;
+}
+
+h1::before {
+    content: '💜';
+    top: -20px;
+    left: -20px;
+    animation-delay: 0s;
+}
+
+h1::after {
+    content: '⭐';
+    bottom: -15px;
+    right: -15px;
+    animation-delay: -2s;
+}
+
+@keyframes spinFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    33% {
+        transform: translateY(-12px) rotate(15deg) scale(1.15);
+    }
+    66% {
+        transform: translateY(6px) rotate(-12deg) scale(0.95);
+    }
+}
+
+/* ===== H1 CON DISEÑO ===== */
+h1 {
+    position: relative;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 45px 70px;
+    border-radius: 25px;
+    color: #6b21a8;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    box-shadow:
+        0 15px 35px rgba(155, 89, 182, 0.25),
+        0 5px 15px rgba(0, 0, 0, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    animation: cardEntry 1.2s ease-out, cardFloat 5s ease-in-out 1.2s infinite;
+    overflow: visible;
+}
+
+/* Degradado suave detrás del texto */
+h1 {
+    background-image:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(243, 232, 255, 0.85));
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+@keyframes cardEntry {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* ===== BRILLO QUE RECORRE LA TARJETA ===== */
+h1 {
+    position: relative;
+}
+
+h1 {
+    overflow: hidden;
+}
+
+h1 {
+    isolation: isolate;
+}
+
+h1 {
+    --shine: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent 70%
+    );
+}
+
+h1::marker {
+    content: none;
+}
+
+/* Brillo animado usando un elemento interno simulado con background animado */
+h1 {
+    background-image:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(243, 232, 255, 0.9)),
+        linear-gradient(120deg, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%);
+    background-size: 100% 100%, 300% 100%;
+    background-position: 0 0, -100% 0;
+    background-repeat: no-repeat;
+    animation:
+        cardEntry 1.2s ease-out,
+        cardFloat 5s ease-in-out 1.2s infinite,
+        shine 6s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0 0, -100% 0;
+    }
+    60%, 100% {
+        background-position: 0 0, 200% 0;
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    h1 {
+        padding: 30px 25px;
+        border-radius: 18px;
+        letter-spacing: 1px;
+    }
+
+    body::before,
+    body::after {
+        font-size: 2rem;
+    }
+
+    h1::before,
+    h1::after {
+        font-size: 1.5rem;
+    }
+}

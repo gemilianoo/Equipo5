@@ -1,0 +1,301 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(160deg, #eef6fc 0%, #d9ecf9 50%, #c5e0f2 100%);
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+/* =========================================
+   BLOBS DE FONDO
+   ========================================= */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+.blob-1 { width: 400px; height: 400px; background: #a8cff0; top: -100px; left: -100px; animation: moverBlob 20s ease-in-out infinite; }
+.blob-2 { width: 350px; height: 350px; background: #8ec2e8; bottom: -100px; right: -80px; animation: moverBlob 24s ease-in-out infinite reverse; }
+.blob-3 { width: 300px; height: 300px; background: #bcd9f2; top: 45%; left: 40%; animation: moverBlob 28s ease-in-out infinite; }
+
+@keyframes moverBlob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%      { transform: translate(50px, -40px) scale(1.15); }
+}
+
+/* =========================================
+   STICKERS
+   ========================================= */
+.sticker {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    filter: drop-shadow(0 6px 12px rgba(107, 167, 212, 0.3));
+}
+
+/* ---------- CORAZÓN ---------- */
+.corazon { top: 12%; left: 8%; animation: flotarSuave 5s ease-in-out infinite; }
+.corazon-forma {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #9ecbeb, #6ba7d4);
+    transform: rotate(-45deg);
+}
+.corazon-forma::before,
+.corazon-forma::after {
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background: inherit;
+    border-radius: 50%;
+}
+.corazon-forma::before { top: -22px; left: 0; }
+.corazon-forma::after  { top: 0; left: 22px; }
+
+/* ---------- NUBE ---------- */
+.nube { top: 18%; right: 10%; animation: flotarSuave 7s ease-in-out infinite; }
+.nube-forma {
+    position: relative;
+    width: 90px;
+    height: 35px;
+    background: linear-gradient(135deg, #ffffff, #cfe6f7);
+    border-radius: 40px;
+    box-shadow: 0 6px 15px rgba(107, 167, 212, 0.25);
+}
+.nube-forma span {
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+.nube-forma span:nth-child(1) { width: 45px; height: 45px; top: -20px; left: 12px; }
+.nube-forma span:nth-child(2) { width: 55px; height: 55px; top: -28px; left: 32px; }
+.nube-forma span:nth-child(3) { width: 35px; height: 35px; top: -14px; left: 60px; }
+
+/* ---------- LUNA ---------- */
+.luna { bottom: 15%; left: 12%; animation: flotarSuave 6s ease-in-out infinite reverse; }
+.luna-forma {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #cfe6f7, #8ec2e8);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset -8px -8px 12px rgba(107, 167, 212, 0.4);
+}
+.luna-forma::after {
+    content: '';
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background: #eef6fc;
+    border-radius: 50%;
+    top: -10px;
+    left: 18px;
+}
+
+/* ---------- FLOR ---------- */
+.flor {
+    bottom: 20%; right: 14%;
+    width: 70px; height: 70px;
+    animation: girarFlor 12s linear infinite;
+}
+.flor span {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #9ecbeb);
+    border-radius: 50% 50% 50% 0;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    box-shadow: 0 3px 8px rgba(107, 167, 212, 0.3);
+}
+.flor span:nth-child(1) { transform: rotate(0deg)   translate(-50%, -100%); }
+.flor span:nth-child(2) { transform: rotate(72deg)  translate(-50%, -100%); }
+.flor span:nth-child(3) { transform: rotate(144deg) translate(-50%, -100%); }
+.flor span:nth-child(4) { transform: rotate(216deg) translate(-50%, -100%); }
+.flor span:nth-child(5) { transform: rotate(288deg) translate(-50%, -100%); }
+.flor::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 16px; height: 16px;
+    background: radial-gradient(circle, #6ba7d4, #4d8bbd);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+@keyframes girarFlor {
+    0%   { transform: rotate(0deg) translateY(0); }
+    50%  { transform: rotate(180deg) translateY(-15px); }
+    100% { transform: rotate(360deg) translateY(0); }
+}
+
+/* ---------- ESTRELLA ---------- */
+.estrella { top: 8%; left: 42%; animation: titilar 2.5s ease-in-out infinite; }
+.estrella-forma {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ffffff, #a8cff0);
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%,
+        79% 91%, 50% 70%, 21% 91%, 32% 57%,
+        2% 35%, 39% 35%
+    );
+    filter: drop-shadow(0 0 10px rgba(168, 207, 240, 0.9));
+}
+@keyframes titilar {
+    0%, 100% { opacity: 0.4; transform: scale(0.85) rotate(0deg); }
+    50%      { opacity: 1;   transform: scale(1.15) rotate(180deg); }
+}
+
+/* ---------- GOTA ---------- */
+.gota { bottom: 30%; right: 30%; animation: caerFlotar 8s ease-in-out infinite; }
+.gota-forma {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #bcd9f2, #6ba7d4);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform: rotate(45deg);
+    box-shadow: inset -3px -3px 6px rgba(77, 139, 189, 0.4);
+}
+@keyframes caerFlotar {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-20px); }
+}
+
+/* ---------- PUNTITOS ---------- */
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    background: #6ba7d4;
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+    animation: flotarDot 6s ease-in-out infinite;
+}
+.dot-1 { width: 8px;  height: 8px;  top: 40%; left: 25%; animation-delay: 0s; }
+.dot-2 { width: 10px; height: 10px; top: 65%; left: 55%; animation-delay: 1s; }
+.dot-3 { width: 6px;  height: 6px;  top: 30%; right: 35%; animation-delay: 2s; }
+
+@keyframes flotarDot {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50%      { transform: translateY(-20px); opacity: 0.9; }
+}
+
+/* =========================================
+   CONTENEDOR DEL NOMBRE
+   ========================================= */
+.contenedor {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 60px 70px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 50px rgba(107, 167, 212, 0.25);
+    animation: aparecer 1.5s ease-out, flotarTarjeta 7s ease-in-out 1.5s infinite;
+}
+
+@keyframes flotarTarjeta {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+}
+
+/* =========================================
+   TIPOGRAFÍA DEL NOMBRE
+   ========================================= */
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    letter-spacing: 0.08em;
+    color: #2c5f8a;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    letter-spacing: 0.08em;
+    background: linear-gradient(90deg, #2c5f8a, #6ba7d4, #2c5f8a);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    animation: brilloNombre 5s linear infinite;
+}
+
+@keyframes brilloNombre {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.linea-decorativa {
+    width: 100px;
+    height: 3px;
+    margin: 28px auto 0;
+    background: linear-gradient(90deg, transparent, #6ba7d4, transparent);
+    border-radius: 3px;
+    animation: crecer 1.8s ease-out 0.5s both, latirLinea 3s ease-in-out 2.3s infinite;
+}
+
+@keyframes crecer {
+    from { width: 0; opacity: 0; }
+    to   { width: 100px; opacity: 1; }
+}
+
+@keyframes latirLinea {
+    0%, 100% { width: 100px; opacity: 0.8; }
+    50%      { width: 140px; opacity: 1; }
+}
+
+/* =========================================
+   ANIMACIÓN DE ENTRADA
+   ========================================= */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 600px) {
+    .contenedor {
+        padding: 40px 28px;
+        border-radius: 24px;
+    }
+
+    h1, h2 { font-size: 1.3rem; letter-spacing: 0.05em; }
+
+    .sticker { transform: scale(0.75); }
+    .flor    { transform: scale(0.7); }
+}
