@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GustavoComponent } from './components/gustavo/gustavo.component';
-import { MAguirreComponent } from './components/m.aguirre/m-aguirre.component';
-import { RominaComponent } from './components/romina-component/romina.component'; // Ajusta la ruta si es necesario
-import { ValeriaComponent } from './components/valeria/valeria.component';
+import { Gustavo } from './components/gustavo/gustavo'; 
+import { MAguirre } from './components/m.aguirre/m.aguirre'; 
+import { RominaComponent } from './components/romina-component/romina-component';
+import { Valeria } from './components/valeria/valeria';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet, 
-    GustavoComponent, 
-    MAguirreComponent, 
+    Gustavo, 
+    MAguirre, 
     RominaComponent, 
-    ValeriaComponent
+    Valeria
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
