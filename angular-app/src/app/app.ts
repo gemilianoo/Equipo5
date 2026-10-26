@@ -1,12 +1,23 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { GustavoComponent } from './components/gustavo/gustavo.component';
+import { MAguirreComponent } from './components/m.aguirre/m-aguirre.component';
+import { RominaComponent } from './components/romina-component/romina.component'; // Ajusta la ruta si es necesario
+import { ValeriaComponent } from './components/valeria/valeria.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    RouterOutlet, 
+    GustavoComponent, 
+    MAguirreComponent, 
+    RominaComponent, 
+    ValeriaComponent
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('angular-app');
+  title = 'angular-app';
 }
