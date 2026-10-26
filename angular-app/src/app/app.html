@@ -1,7 +1,12 @@
-<main class="main">
-  <app-gustavo></app-gustavo>
-  <app-m-aguirre></app-m-aguirre>
-  <app-romina-component></app-romina-component>
-  <app-valeria></app-valeria>
+<header class="navbar">
+  <nav class="nav-links">
+    <a routerLink="/gustavo" routerLinkActive="active" class="nav-btn">Gustavo</a>
+    <a routerLink="/m-aguirre" routerLinkActive="active" class="nav-btn">M. Aguirre</a>
+    <a routerLink="/romina" routerLinkActive="active" class="nav-btn">Romina</a>
+    <a routerLink="/valeria" routerLinkActive="active" class="nav-btn">Valeria</a>
+  </nav>
+</header>
+
+<main class="content-container">
+  <router-outlet></router-outlet>
 </main>
-<router-outlet />

@@ -1,20 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Gustavo } from './components/gustavo/gustavo'; 
-import { MAguirre } from './components/m.aguirre/m.aguirre'; 
-import { RominaComponent } from './components/romina-component/romina-component';
-import { Valeria } from './components/valeria/valeria';
+import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet, 
-    Gustavo, 
-    MAguirre, 
-    RominaComponent, 
-    Valeria
-  ],
+  imports: [RouterOutlet, RouterLink], // <--- ¡Esto es lo que hace que los botones funcionen!
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
