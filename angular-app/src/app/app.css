@@ -1,3 +1,4 @@
 body {
-    color: #ffffff; /* Texto blanco para que resalte sobre el fondo oscuro */
+  color: #ffffff !important;
+  background-color: #121212; /* Opcional: un fondo oscuro más agradable para contraste */
 }
