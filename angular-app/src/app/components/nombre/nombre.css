@@ -1,0 +1,46 @@
+
+.pagina-lucas {
+  background-color: #dbeafe;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #1e3a8a;
+  font-size: 45px;
+}
+
+.bienvenida {
+  color: #333333;
+  font-size: 22px;
+}
+
+h2 {
+  color: #1e3a8a;
+  margin-top: 60px;
+}
+
+.companeros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.companeros a {
+  color: #1e3a8a;
+  background-color: white;
+  padding: 12px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  width: 220px;
+}
+
+.companeros a:hover {
+  background-color: #bfdbfe;
+}
+
